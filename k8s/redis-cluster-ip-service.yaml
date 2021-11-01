@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: redis-cluster-ip-service
+spec:
+  type: ClusterIP
+  selector:
+    component: redis 
+## mengacu ke component deploymentserver    
+  ports:
+    - port: 6379
+#port artinya port yg akan diakses oleh other objects
+      targetPort: 6379 
+## target port artinya container pod
